@@ -5,11 +5,11 @@
  * @author Sergei Miami <miami@blackcrystal.net>
  */
 
-$size  = round((isset($argv[1]) ? $argv[1] : 16)*1024*1024*1024); // 16gb
-$file  = isset($argv[2]) ? $argv[2] : '/dev/sdb'; //"/dev/sdb";
+$size  = round((isset($argv[1]) ? $argv[1] : 16)*1024*1024*1024); // 16gb default
+$file  = isset($argv[2]) ? $argv[2] : '/dev/sdb'; //dev/sdb by default
 $steps = isset($argv[3]) ? $argv[3] : 1024;
 
-$string = str_repeat("Show what you can. Learn what you don't. ",1);
+$string = "Show what you can. Learn what you don't. ";
 $length = strlen($string);
 
 echo "Starting $size bytes test of $file in $steps steps\n";

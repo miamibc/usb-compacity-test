@@ -1,12 +1,13 @@
 <?php
 /**
  *
+ * Linear write/read
  * @package usb-compacity-test
  * @author Sergei Miami <miami@blackcrystal.net>
  */
 
-$size  = isset($argv[1]) ? $argv[1] : 10*1024*1024; // 10gb
-$file  = isset($argv[2]) ? $argv[2] : '/dev/sdb'; //"/dev/sdb";
+$size  = round((isset($argv[1]) ? $argv[1] : 16)*1024*1024*1024); // 16gb default
+$file  = isset($argv[2]) ? $argv[2] : '/dev/sdb'; //dev/sdb by default
 $steps = isset($argv[3]) ? $argv[3] : 1024;
 
 $string = "Show what you can. Learn what you don't. ";
@@ -25,7 +26,7 @@ while ($position < $size)
 echo "\rWriting complete.        \n";
 fclose($file);
 $file = fopen ($stream, 'rb');
-
+$position = 0;
 while ($position < $size)
 {
   $data = fgets($file, $length+1);
